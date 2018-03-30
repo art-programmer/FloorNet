@@ -1,5 +1,5 @@
 # FloorNet: A Unified Framework for Floorplan Reconstruction from 3D Scans
-By Chen Liu<sup>*</sup>, Jiaye Wu<sup>*</sup>, and Yasutaka Furukawa (<sup>*</sup> indicates equal contribution)
+By Chen Liu<sup>\*</sup>, Jiaye Wu<sup>\*</sup>, and Yasutaka Furukawa (<sup>\*</sup> indicates equal contribution)
 
 ## Introduction
 
