@@ -20,7 +20,7 @@ python train.py --restore=0
 ### Evaluation
 To evaluate the performance of our trained model, please run:
 ```bash
-python evaluate.py
+python train.py --task=evaluate
 ```
 
 ## Contact
