@@ -26,6 +26,9 @@ To evaluate the performance of our trained model, please run:
 python train.py --task=evaluate
 ```
 
+## Generate 3D models
+We can popup the reconstructed floorplan to generate 3D models. Please refer to our previous project, [FloorplanTransformation](https://github.com/art-programmer/FloorplanTransformation), for more details.
+
 ## Contact
 
 If you have any questions, please contact me at chenliu@wustl.edu.
