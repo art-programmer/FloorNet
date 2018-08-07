@@ -25,7 +25,11 @@ Basically, every data sample(tf.train.Example) should at least contain the follo
 1. Inputs:
 
 	- a point cloud (randomly sampled 50,000 points)
-	- a mapping from point cloud's 3D space to 2D space of the 256x256 top-view density image (It contains 50,000 indices one for each point. Each index follows this equation: index = round((y - min(Y) + padding) / (maxRange + 2 * padding) * 256) * 256 + round((x - min(X) + padding) / (maxRange + 2 * padding) * 256) where X, Y are point coordinates, maxRange = max(max(X) - min(X), max(Y) - min(Y)), and padding could be any small value, say 0.05 maxRange.)
+	- a mapping from point cloud's 3D space to 2D space of the 256x256 top-view density image.
+		- It contains 50,000 indices, one for each point.
+		- For point (x, y, z), index = round((y - min(Y) + padding) / (maxRange + 2 * padding) * 256) * 256 + round((x - min(X) + padding) / (maxRange + 2 * padding) * 256).
+			- maxRange = max(max(X) - min(X), max(Y) - min(Y))
+			- padding could be any small value, say 0.05 maxRange
 	- optional: image features of the RGB video stream, if the image branch is enabled
 
 2. Labels:
