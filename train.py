@@ -25,8 +25,7 @@ import argparse
 
 from RecordReader import *
 from utils import *
-import traceback
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 if 'xrange' not in globals():
     xrange = range
     pass
