@@ -6,7 +6,7 @@ By Chen Liu<sup>\*</sup>, Jiaye Wu<sup>\*</sup>, and Yasutaka Furukawa (<sup>\*<
 This paper proposes FloorNet, a novel neural network, to turn RGBD videos of indoor spaces into vector-graphics floorplans. FloorNet consists of three branches, PointNet branch, Floorplan branch, and Image branch. For more details, please refer to our ECCV 2018 [paper](https://arxiv.org/abs/1804.00090) or visit our [project website](http://art-programmer.github.io/floornet.html). This is a follow-up work of our floorplan transformation project which you can find [here](https://github.com/art-programmer/FloorplanTransformation).
 
 ## Dependencies
-Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3.
+Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3, CUDA (>= 8.0)
 
 ## Data
 
@@ -15,7 +15,7 @@ Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3.
 We collect 155 scans of residential units and annotated corresponding floorplan information. Among 155 scans, 135 are used for training and 20 are for testing. We convert both training data and testing data to [tfrecords files](https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data) which can be downloaded [here](https://mega.nz/#F!5yQy0b5T!ykkR4dqwGO9J5EwnKT_GBw). Please put the downloaded files under folder *data/*.
 
 
-### Using other data
+### Using custom data
 
 To generate training/testing data from other data source, the data should be converted to tfrecords as what we did in **RecordWriterTango.py**. Please refer to [this guide](http://warmspringwinds.github.io/tensorflow/tf-slim/2016/12/21/tfrecords-guide/) for how to generate and read tfrecords. 
 
