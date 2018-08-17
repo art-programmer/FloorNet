@@ -17,7 +17,7 @@ We collect 155 scans of residential units and annotated corresponding floorplan 
 
 ### Using custom data
 
-To generate training/testing data from other data source, the data should be converted to tfrecords as what we did in **RecordWriterTango.py** (an example of our raw data before processed by **RecordWriterTango.py** is provided here[https://mega.nz/#!dnohjKZa]). Please refer to [this guide](http://warmspringwinds.github.io/tensorflow/tf-slim/2016/12/21/tfrecords-guide/) for how to generate and read tfrecords. 
+To generate training/testing data from other data source, the data should be converted to tfrecords as what we did in **RecordWriterTango.py** (an example of our raw data before processed by **RecordWriterTango.py** is provided [here](https://mega.nz/#!dnohjKZa!I3NJZ806vNK-UYp-ap7OynGnS5E-E5AK_z5WsX8n1Ls)). Please refer to [this guide](http://warmspringwinds.github.io/tensorflow/tf-slim/2016/12/21/tfrecords-guide/) for how to generate and read tfrecords. 
 
 Basically, every data sample(tf.train.Example) should at least contain the following components:
 
