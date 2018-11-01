@@ -12,7 +12,7 @@ Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3, CUDA (>= 8.0)
 
 ### Dataset used in the paper
 
-We collect 155 scans of residential units and annotated corresponding floorplan information. Among 155 scans, 135 are used for training and 20 are for testing. We convert both training data and testing data to [tfrecords files](https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data) which can be downloaded [here](https://mega.nz/#F!5yQy0b5T!ykkR4dqwGO9J5EwnKT_GBw). Please put the downloaded files under folder *data/*.
+We collect 155 scans of residential units and annotated corresponding floorplan information. Among 155 scans, 135 are used for training and 20 are for testing. We convert both training data and testing data to [tfrecords files](https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data) which can be downloaded [here](https://drive.google.com/open?id=16lyX_xTiALUzKyst86WJHlhpTDr8XPF_) (or [here](https://mega.nz/#F!5yQy0b5T!ykkR4dqwGO9J5EwnKT_GBw) if you cannot access the previous one). Please put the downloaded files under folder *data/*.
 
 
 ### Using custom data
