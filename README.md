@@ -41,6 +41,8 @@ Basically, every data sample(tf.train.Example) should at least contain the follo
 	
 Again, please refer to 	**RecordWriterTango.py** for exact details.
 
+**NEW:** We added a template file, **RecordWriterCustom.py** for using custom data.
+
 
 ## Annotator
 For reference, a similar (but not the same) annotator written in Python is [here](https://github.com/art-programmer/FloorplanAnnotator). You need to make some changes to annotate your own data.
