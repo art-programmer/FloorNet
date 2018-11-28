@@ -56,7 +56,7 @@ python train.py --restore=0
 ## Evaluation
 To evaluate the performance of our trained model, please run:
 ```bash
-python train.py --task=evaluate
+python train.py --task=evaluate --separateIconLoss
 ```
 
 ## Generate 3D models
