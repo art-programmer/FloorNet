@@ -6,7 +6,7 @@ By Chen Liu<sup>\*</sup>, Jiaye Wu<sup>\*</sup>, and Yasutaka Furukawa (<sup>\*<
 This paper proposes FloorNet, a novel neural network, to turn RGBD videos of indoor spaces into vector-graphics floorplans. FloorNet consists of three branches, PointNet branch, Floorplan branch, and Image branch. For more details, please refer to our ECCV 2018 [paper](https://arxiv.org/abs/1804.00090) or visit our [project website](http://art-programmer.github.io/floornet.html). This is a follow-up work of our floorplan transformation project which you can find [here](https://github.com/art-programmer/FloorplanTransformation).
 
 ## Dependencies
-Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3, CUDA (>= 8.0)
+Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3, CUDA (>= 8.0), Gurobi (free only for academic usages).
 
 ## Data
 
