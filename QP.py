@@ -255,7 +255,7 @@ def findMatches(pred_dict, gt_dict, distanceThreshold, width=256, height=256):
         point = center
         for offset in xrange(10):
           point[1 - lineDim] += direction
-          if point[lineDim] < 0 or point[lineDim] >= sizes[lineDim]:
+          if point[1 - lineDim] < 0 or point[1 - lineDim] >= sizes[1 - lineDim]:
             break
           roomIndex = roomRegions[point[1], point[0]]
           if roomIndex != backgroundIndex:
