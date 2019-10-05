@@ -17,6 +17,8 @@ Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3, CUDA (>= 8.0), Gurobi (free on
 
 We collect 155 scans of residential units and annotated corresponding floorplan information. Among 155 scans, 135 are used for training and 20 are for testing. We convert data to tfrecords files which can be downloaded [here](https://drive.google.com/open?id=16lyX_xTiALUzKyst86WJHlhpTDr8XPF_) (or [here](https://mega.nz/#F!5yQy0b5T!ykkR4dqwGO9J5EwnKT_GBw) if you cannot access the previous one). Please put the downloaded files under folder *data/*.
 
+Here are the links to the raw [point clouds](https://drive.google.com/open?id=1JJlD0qsgMpiU5Jq9TNm3uDPjvqi88aZn) and [annotations](https://drive.google.com/open?id=1hYDE2SXLA8Cq7LEK67xO-UMeTSPJ5rcB). Please refer to **RecordWriterTango.py** to see how to convert the raw data and annotations to tfrecords files.
+
 
 ### Using custom data
 
