@@ -4,22 +4,15 @@ import cv2
 import random
 import math
 import os
-import sys
-import cPickle as pickle
-import PIL
-import json
 import glob
 import torchfile
 import math
 import os.path
-import zipfile
-import lupa
 #from drnseg import DRNSeg
 from utils import *
 from floorplan_utils import *
 import argparse
 from skimage import measure
-from augmentation import augment
 import tensorflow as tf
 
 #import show3d

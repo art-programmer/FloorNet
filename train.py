@@ -1,4 +1,3 @@
-import multiprocessing as mp
 import sys
 import tensorflow as tf
 import numpy as np
@@ -8,8 +7,6 @@ import random
 import math
 import os
 import time
-import zlib
-import socket
 import traceback
 try:
     import Queue
@@ -17,10 +14,6 @@ except Exception:
     import queue as Queue
 import sys
 #import tf_nndistance
-try:
-    import cPickle as pickle
-except:
-    import pickle
 import argparse
 
 from RecordReader import *
@@ -28,7 +21,6 @@ from utils import *
 #import matplotlib.pyplot as plt
 if 'xrange' not in globals():
     xrange = range
-    pass
 import tensorflow.contrib.slim as slim
 from tensorflow import nn
 from tensorflow.python.client import timeline
