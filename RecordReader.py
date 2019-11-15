@@ -1,10 +1,6 @@
 import tensorflow as tf
 import numpy as np
-import threading
 import PIL.Image as Image
-from functools import partial
-from multiprocessing import Pool
-import cv2
 import sys
 import os
 import functools

@@ -4,11 +4,6 @@ import cv2
 import random
 import math
 import os
-import time
-import zlib
-import socket
-import threading
-import Queue
 import sys
 import cPickle as pickle
 import PIL
