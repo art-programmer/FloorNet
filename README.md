@@ -14,7 +14,7 @@ This paper proposes FloorNet, a novel neural network, to turn RGBD videos of ind
 
 Python 2.7, TensorFlow (>= 1.3), numpy, opencv 3, CUDA (>= 8.0), Gurobi (free only for academic usages).
 
-## Installation
+### Installation
 
 ```
 conda create -n floor27 python=27
@@ -24,7 +24,7 @@ conda install -y numpy &&
 conda install -y opencv=3 &&
 conda install -y -c anaconda cudatoolkit &&
 pip install tflearn &&
-conda install -y -c conda-forge scikit-image 
+conda install -y -c conda-forge scikit-image
 ```
 
 ## Data
@@ -81,6 +81,13 @@ python train.py --task=evaluate --separateIconLoss
 ## Generate 3D models
 
 We can popup the reconstructed floorplan to generate 3D models. Please refer to our previous project, [FloorplanTransformation](https://github.com/art-programmer/FloorplanTransformation), for more details.
+
+## Coding Guidelines
+
+The code in this project adds to the Python coding standards:
+
+- All loops are closed by the `continue` keyword. This aids in identifying the end of large loops.
+- If not in a loop, large code blocks are ended with the `pass` keyword. This aids in identifying the end of large blocks of code.
 
 ## Contact
 

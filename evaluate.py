@@ -17,13 +17,11 @@ def enablePrint():
 def evaluate(options):
     if not os.path.exists(options.test_dir):
         os.system("mkdir -p %s"%options.test_dir)
-        pass
     if os.path.exists(options.test_dir + '/dummy'):
         #os.rmdir(options.test_dir + '/dummy')
         pass
     else:
         os.mkdir(options.test_dir + '/dummy')
-        pass
 
     if options.useCache == 2 and os.path.exists(options.test_dir + '/dummy/gt_dict.npy') and os.path.exists(options.test_dir + '/dummy/pred_dict.npy'):
         return
@@ -34,7 +32,6 @@ def evaluate(options):
 
     if not os.path.exists(options.test_dir):
         os.system("mkdir -p %s"%options.test_dir)
-        pass
 
     #print(options.checkpoint_dir)
     tf.reset_default_graph()
@@ -44,16 +41,12 @@ def evaluate(options):
         filenames.append('data/Syn_val.tfrecords')
     if '1' in options.dataset:
         filenames.append('data/Tango_val.tfrecords')
-        pass
     if '2' in options.dataset:
         filenames.append('data/ScanNet_val.tfrecords')
-        pass
     if '3' in options.dataset:
         filenames.append('data/Matterport_val.tfrecords')
-        pass
     if '4' in options.dataset:
         filenames.append('data/SUNCG_val.tfrecords')
-        pass
 
     dataset = getDatasetVal(filenames, '', '4' in options.branches, options.batchSize)
 
@@ -88,7 +81,6 @@ def evaluate(options):
             loader.restore(sess,"%s/checkpoint.ckpt"%(options.checkpoint_dir))
         else:
             loader.restore(sess,"%s/checkpoint_%d.ckpt"%(options.checkpoint_dir, options.startIteration))
-            pass
 
         #if tf.train.checkpoint_exists("%s/%s.ckpt"%(dumpdir,keyname)):
         #saver.restore(sess,"%s/%s.ckpt"%(dumpdir,keyname))
@@ -101,7 +93,6 @@ def evaluate(options):
         cornerCounters = {}
         for cornerType in CORNER_RANGES.keys():
             cornerCounters[cornerType] = np.zeros(3)
-            pass
 
         globalCornerCounter = np.zeros(3)
         iconCounter = np.zeros(2)
@@ -134,13 +125,11 @@ def evaluate(options):
         except tf.errors.OutOfRangeError:
             print('Finish testing')
             pass
-
         pass
 
     if options.useCache != -1:
         np.save(options.test_dir + '/dummy/gt_dict.npy', gtAll)
         np.save(options.test_dir + '/dummy/pred_dict.npy', predAll)
-        pass
     if options.useCache == -2:
         return
 
@@ -165,7 +154,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
 
     if options.separateIconLoss:
         pred_icon_separate = softmax(np.load(options.test_dir.replace('wsf', 'wsf_loss3') + '/dummy/pred_dict.npy')[()]['icon'])
-        pass
     #pred_dict['icon'] = np.load(options.test_dir.replace('wsf', 'wsf_loss3').replace('hybrid1', 'hybrid14').replace('dataset_1', '') + '/dummy/pred_dict.npy')[()]['icon']
     #pred_dict['corner'][:, :, :, NUM_WALL_CORNERS + 4:NUM_WALL_CORNERS + 8] = np.load(options.test_dir.replace('wsf', 'wsf_loss2') + '/dummy/pred_dict.npy')[()]['corner'][:, :, :, NUM_WALL_CORNERS + 4:NUM_WALL_CORNERS + 8]
     #pass
@@ -174,7 +162,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
         threshold = np.ones((HEIGHT, WIDTH, 1)) * 0.5
     else:
         threshold = np.ones((HEIGHT, WIDTH, 1)) * 0.5# HEATMAP_SCALE / 2
-        pass
 
     statisticsSum = {k: [0.0, 0.0, 0.0] for k in ['wall', 'door', 'icon', 'room', 'neighbor', 'neighbor_all']}
     #print(pred_dict['corner'].max())
@@ -188,7 +175,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
         pred_ic = sigmoid(pred_ic)
     else:
         threshold = np.ones((HEIGHT, WIDTH, 1)) * 0.3
-        pass
 
     gt_wc = gt_dict['corner'][:, :, :, :NUM_WALL_CORNERS]
     gt_oc = gt_dict['corner'][:, :, :, NUM_WALL_CORNERS:NUM_WALL_CORNERS + 4]
@@ -212,7 +198,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
         if options.separateIconLoss:
             pred_icon[:, :, :-2] = pred_icon_separate[batchIndex][:, :, :-2]
             #pred_icon = pred_icon_separate[batchIndex]
-            pass
 
         if False:
             #print('batch index', batchIndex)
@@ -227,7 +212,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                 cornerImage = drawSegmentationImage(np.concatenate([threshold, gt_wc[batchIndex]], axis=2), blackIndex=0)
                 cornerImage[cornerImage == 0] = density[cornerImage == 0]
                 cv2.imwrite(options.test_dir + '/' + str(batchIndex) + '_corner_gt.png', cornerImage)
-                pass
 
 
             if False:
@@ -240,7 +224,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                 corner_rgb_img = (corner_rgb_img * 255).round().astype('uint8')
                 #print('rgb_out', corner_rgb_img.shape, corner_rgb_img.max())
                 cv2.imwrite(options.test_dir + '/' + str(batchIndex) + '_corner_heatmap.png', corner_rgb_img)
-                pass
 
             if datasetFlag in [1, 4]:
                 cornerImage = drawSegmentationImage(np.concatenate([threshold, pred_oc[batchIndex]], axis=2), blackIndex=0)
@@ -259,7 +242,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                 cornerImage = drawSegmentationImage(np.concatenate([threshold, gt_ic[batchIndex]], axis=2), blackIndex=0)
                 cornerImage[cornerImage == 0] = density[cornerImage == 0]
                 cv2.imwrite(options.test_dir + '/' + str(batchIndex) + '_icon_corner_gt.png', cornerImage)
-                pass
 
 
             if datasetFlag in [1, 2, 3, 4]:
@@ -270,7 +252,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                 icon_density = drawSegmentationImage(pred_dict['icon'][batchIndex], blackIndex=0)
                 icon_density[icon_density == 0] = density[icon_density == 0]
                 cv2.imwrite(options.test_dir + '/' + str(batchIndex) + '_icon_pred.png', icon_density)
-                pass
 
             if datasetFlag in [1, 3, 4]:
                 room_density = drawSegmentationImage(gt_dict['room'][batchIndex], blackIndex=0)
@@ -280,7 +261,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                 room_density = drawSegmentationImage(pred_dict['room'][batchIndex], blackIndex=0)
                 room_density[room_density == 0] = density[room_density == 0]
                 cv2.imwrite(options.test_dir + '/' + str(batchIndex) + '_room_pred.png', room_density)
-                pass
 
 
             if batchIndex == 0 and False:
@@ -298,7 +278,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
             if True:
                 if options.debug == -1:
                     blockPrint()
-                    pass
 
                 # gtHeatmaps = gt_dict['corner'][batchIndex]
                 #result_gt = reconstructFloorplan(gtHeatmaps[:, :, :NUM_WALL_CORNERS], gtHeatmaps[:, :, NUM_WALL_CORNERS:NUM_WALL_CORNERS + 4], gtHeatmaps[:, :, NUM_WALL_CORNERS + 4:NUM_WALL_CORNERS + 8], segmentation2Heatmaps(gt_dict['icon'][batchIndex], NUM_ICONS), segmentation2Heatmaps(gt_dict['room'][batchIndex], NUM_ROOMS), density[:, :, 0], gt=True)
@@ -313,7 +292,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                 pred_debug_dir = options.test_dir
                 try:
                     os.mkdir(pred_debug_dir)
-                    pass
                 except OSError as e:
                     pass
 
@@ -364,12 +342,10 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                     cv2.imwrite(options.test_dir + '/' + str(batchIndex) + '_reconstruction_wall_pred.png', resultImage)
                     iconImage[iconImage == 0] = density[iconImage == 0]
                     cv2.imwrite(options.test_dir + '/' + str(batchIndex) + '_reconstruction_icon_pred.png', iconImage)
-                    pass
 
 
                 if options.debug == -1:
                     enablePrint()
-                    pass
                 if len(result_pred) == 0:
                     continue
 
@@ -401,7 +377,6 @@ def evaluateBatch(options, gt_dict=None, pred_dict=None):
                     continue
                 if options.debug >= 0:
                     exit(1)
-                    pass
                 pass
 
             # except Exception as e:
